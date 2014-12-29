@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../seed/app/css/bootstrap.css" />
+    <link rel="stylesheet" href="../seed/app/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header>
+    <div class=" navbar navbar-default">
+        <a class="navbar-brand" href="#">SoftUniAds</a>
+        <div class="container">
+            <div class="navbar-collapse collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">My Ads <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">All</a></li>
+                            <li><a href="#">Waiting Approval</a></li>
+                            <li><a href="#">Inactive</a></li>
+                            <li><a href="#">Rejected</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Publish New Ad</a></li>
+                    <li><a href="#">Edit Profile</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">{{ Minka }}</a></li>
+                    <li><a href="#">Logount</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</header>
+<main>
+    <div class="row">
+        <div class="col-md-1"></div>
+
+        <!--   Eding Profile   -->
+        <div class="col-lg-4 well">
+            <form class="form-horizontal">
+                <fieldset>
+                    <legend>Edit Profile</legend>
+                    <div class="form-group">
+                        <label for="inputName" class="col-lg-2 control-label">Name</label>
+                        <div class="col-lg-10">
+                            <input class="form-control" id="inputName" placeholder="Name" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                        <div class="col-lg-10">
+                            <input class="form-control" id="inputEmail" placeholder="Email" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPhone" class="col-lg-2 control-label">Phone</label>
+                        <div class="col-lg-10">
+                            <input class="form-control" id="inputPhone" placeholder="Phone" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="selectTown" class="col-lg-2 control-label">Town</label>
+                        <div class="col-lg-10">
+                            <select class="form-control" id="selectTown">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            <button class="btn btn-default">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+        <div class="col-md-1"></div>
+
+        <!--  Change passwor  -->
+        <div class="col-lg-5 well">
+            <form class="form-horizontal">
+            <fieldset>
+                <legend>Change Password</legend>
+                <div class="form-group">
+                    <label for="inputOldPassword" class="col-lg-3 control-label">Old password</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" id="inputOldPassword" placeholder="Old password" type="password">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputNewPassword" class="col-lg-3 control-label">New Password</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" id="inputNewPassword" placeholder="New Password" type="password">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputConfirmPasswrod" class="col-lg-3 control-label">Confirm new password</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" id="inputConfirmPasswrod" placeholder="Confirm new password" type="password">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button class="btn btn-default">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Change Password</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        </div>
+    </div>
+</main>
+</body>
+</html>
