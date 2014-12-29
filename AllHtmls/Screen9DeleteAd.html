@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../seed/app/css/bootstrap.css" />
+    <link rel="stylesheet" href="../seed/app/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header>
+    <div class=" navbar navbar-default">
+        <a class="navbar-brand" href="#">SoftUniAds</a>
+        <div class="container">
+            <div class="navbar-collapse collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">My Ads <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">All</a></li>
+                            <li><a href="#">Waiting Approval</a></li>
+                            <li><a href="#">Inactive</a></li>
+                            <li><a href="#">Rejected</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Publish New Ad</a></li>
+                    <li><a href="#">Edit Profile</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">{{ Minka }}</a></li>
+                    <li><a href="#">Logount</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</header>
+<main class="" >
+    <div class="row">
+        <div class="col-md-1">  </div>
+        <div class="adds col-md-10">
+            <ul>
+                <!--    AD     -->
+                <li>
+                    <div class=" well col-md-11 ">
+                        <div class="row">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-4">
+                                <h2>Confirm Deleting Ad?</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!--    AD Header     -->
+                            <h3 class="pull-left">Iphone</h3>
+                            <span class="pull-right">11.11.2011</span>
+                        </div>
+                        <div class="row">
+                            <!--    AD Container    -->
+                            <div class="col-md-3">
+                                <img class="imgContainer" src="300px-No_image_available.svg.png">
+                            </div>
+                            <div class="col-md-8">
+                                <p>I have iPhone 4S 16GB for sale. Good price. Like a new.
+                                    Please call me in the evenings or at weekends.
+                                </p>
+                                <ul>
+                                    <li>
+                                        <strong> Category: </strong> <span>{{ Jobs}}</span>
+                                    </li>
+                                    <li>
+                                        <strong> Town:</strong> <span>{{ Plovdiv }}</span>
+                                    </li>
+                                    <li>
+
+                                        <div class="form-group pull-right">
+                                            <div class="col-lg-12 col-lg-offset-2">
+                                                <button class="btn btn-primary">Delete</button>
+                                                <button  class="btn btn-primary">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+
+
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+</main>
+
+</body>
+</html>
