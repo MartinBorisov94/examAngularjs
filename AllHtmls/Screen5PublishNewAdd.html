@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../seed/app/css/bootstrap.css" />
+    <link rel="stylesheet" href="../seed/app/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header>
+    <div class=" navbar navbar-default">
+        <a class="navbar-brand" href="#">SoftUniAds</a>
+        <div class="container">
+            <div class="navbar-collapse collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">My Ads <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">All</a></li>
+                            <li><a href="#">Waiting Approval</a></li>
+                            <li><a href="#">Inactive</a></li>
+                            <li><a href="#">Rejected</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Publish New Ad</a></li>
+                    <li><a href="#">Edit Profile</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">{{ Minka }}</a></li>
+                    <li><a href="#">Logount</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</header>
+<main>
+    <div class="row">
+        <form class="ad-adding col-md-8 form-horizontal">
+            <div class="col-md-1"></div>
+            <div class="well col-md-10">
+                <h2>Publish New Ad</h2>
+                <div class="col-md-9">
+
+                    <div class="form-group">
+                        <label for="inputTitle" class="col-lg-2 control-label">Title</label>
+                        <div class="col-lg-10">
+                            <input class="form-control" id="inputTitle" placeholder="Title" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="textArea" class="col-lg-2 control-label">Textarea</label>
+                        <div class="col-lg-10">
+                            <textarea class="form-control" rows="3" id="textArea" placeholder="text..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imageUrl" class="col-lg-2 control-label">Image</label>
+                        <div class="col-lg-10">
+                            <input class="form-control" id="imageUrl" placeholder="Image" type="text">
+                        </div>
+                    </div>
+
+                    // TODO ctegory and town
+
+                </div>
+                <div class="col-md-3">
+                    <img class="imgContainer" src="300px-No_image_available.svg.png" >
+                    <input  class="btn btn-primary inputImgBtn " type="file" name="imageUrl">
+                </div>
+
+            </div>
+        </form>
+        <div class="categores col-md-4">
+            <!--  Right Bar  -->
+            <div class="well col-md-11" >
+                <!--  Categories  -->
+                <h3 class="panel-heading"> Categories </h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul>
+                            <li><a src="#">All </a> </li>
+                            <li><a src="#">Properties </a> </li>
+                            <li><a src="#">Electronics </a> </li>
+                            <li><a src="#">Job </a> </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--  Towns  -->
+                <h3 class="panel-heading"> Towns </h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul>
+                            <li><a src="#">All </a> </li>
+                            <li><a src="#">Plovdiv </a> </li>
+                            <li><a src="#">Sofia </a> </li>
+                            <li><a src="#">Russe </a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+</body>
+</html>
