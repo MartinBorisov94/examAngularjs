@@ -1,8 +1,11 @@
 'use strict';
 
-var softUni = angular.module('softUniModule', ['ngRoute'])
-    .config(function($routeProvider){
-        $routeProvider.when('/ads',{
-            templateUrl: 'templates/allAds.html'
+var app = angular.module('softUniApp', ['ngResource', 'ngRoute'])
+    .config(function ($routeProvider) {
+        $routeProvider.when('/ads', {
+            templateUrl: 'templates/allAds.html',
+            controller: 'AllAdsController'
         });
     });
+
+
