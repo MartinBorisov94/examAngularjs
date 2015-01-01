@@ -7,13 +7,14 @@ var app = angular.module('softUniApp', ['ngResource', 'ngRoute'])
             controller: 'AllAdsController'
         });
         $routeProvider.when('/login', {
-           templateUrl: 'templates/login.html'
-            /*TODO add controller*/
+           templateUrl: 'templates/login.html',
+            controller: 'LoginController'
         });
         $routeProvider.when('/register', {
             templateUrl: 'templates/register.html'
             /*TODO add controller*/
         });
+        $routeProvider.otherwise({redirectTo: '/'});
     });
 
 
