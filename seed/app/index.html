@@ -3,19 +3,27 @@
 <head>
 	<title>Creating Routes</title>
 	<link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css" />
-	<link rel="stylesheet" href="lib/bootstrap/bootstrap-theme.min.css" />
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/app.css" />
 </head>
 <body ng-app="softUniApp">
-<div class="container">
-	<div class="navbar">
-		<ul class="nav">
-			<li><a href="#/ads">All Ads</a></li>
-		</ul>
+<header>
+	<div class=" navbar navbar-default">
+		<a class="navbar-brand" href="#">SoftUniAds</a>
+		<div class="container">
+			<div id="navbar-right" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a class="btn btn-link" href="#/login">Login</a></li>
+					<li><a class="btn btn-link" href="#/register">Register</a></li>
+				</ul>
+			</div>
+		</div>
 	</div>
-
+</header>
+<main>
 	<ng-view></ng-view>
-</div>
+</main>
+
 
 <script src="lib/angular/angular.js"></script>
 <script src="lib/angular/angular-route.js"></script>

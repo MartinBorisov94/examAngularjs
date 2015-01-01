@@ -1,40 +1,31 @@
-<ul style="border: solid 1px red">
-    <li ng-repeat="ad in data.ads" class="well">
-        {{ad.title}}
-    </li>
-</ul>
 
-
-<!--
 <div class="row">
     <div class="adds col-md-8">
         <ul>
-            &lt;!&ndash;    AD     &ndash;&gt;
+            <!--    AD     -->
             <li>
-                <div class=" well col-md-11 ">
+                <div class=" well col-md-11 "  ng-repeat="ad in data.ads" >
                     <div class="row">
-                        &lt;!&ndash;    AD Header     &ndash;&gt;
-                        <h3 class="pull-left">Iphone</h3>
-                        <span class="pull-right">11.11.2011</span>
+                        <!--    AD Header     -->
+                        <h3 class="pull-left ">{{ ad.title }}</h3>
+                        <span class="pull-right">{{ ad.date | date: 'dd-MMM-yyyy' }}</span>
                     </div>
                     <div class="row">
-                        &lt;!&ndash;    AD Container    &ndash;&gt;
+                        <!--    AD Container    -->
                         <div class="col-md-4">
-                            <img class="imgContainer" src="300px-No_image_available.svg.png">
+                            <img class="imgContainer" ng-src="{{ad.imageDataUrl}}" src="../img/defImg.png">
                         </div>
                         <div class="col-md-8">
-                            <p>I have iPhone 4S 16GB for sale. Good price. Like a new.
-                                Please call me in the evenings or at weekends.
-                            </p>
+                            <p>{{ ad.text }}</p>
                             <ul>
                                 <li>
-                                    <strong> Name: </strong> <span> Victor</span>
+                                    <strong> Name: </strong> <span> {{ ad.ownerName }}</span>
                                 </li>
                                 <li>
-                                    <strong> email:</strong> <span> test@mail.bg </span>
+                                    <strong> email:</strong> <span> {{ ad.ownerEmail }} </span>
                                 </li>
                                 <li>
-                                    <strong> tel: </strong> <span> +3596622846</span>
+                                    <strong> tel: </strong> <span> {{ ad.ownerPhone }}</span>
                                 </li>
                             </ul>
                         </div>
@@ -44,4 +35,4 @@
 
         </ul>
     </div>
-</div>-->
+</div>
