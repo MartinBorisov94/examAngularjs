@@ -2,9 +2,13 @@
 
 var app = angular.module('softUniApp', ['ngResource', 'ngRoute'])
     .config(function ($routeProvider) {
-        $routeProvider.when('/', {
+        $routeProvider.when('/allAds', {
             templateUrl: 'templates/allAds.html',
             controller: 'AllAdsController'
+        });
+        $routeProvider.when('/', {
+            templateUrl: 'templates/pagingAds.html',
+            controller: 'PaginatorController'
         });
         $routeProvider.when('/login', {
            templateUrl: 'templates/login.html',
@@ -14,6 +18,7 @@ var app = angular.module('softUniApp', ['ngResource', 'ngRoute'])
             templateUrl: 'templates/register.html'
             /*TODO add controller*/
         });
+
         $routeProvider.otherwise({redirectTo: '/'});
     });
 
