@@ -1,0 +1,27 @@
+<div class="col-md-3"></div>
+<div class="col-md-6 well">
+    <!--  Login form  -->
+    <form class="form-horizontal" name="loginForm" ng-controller="LoginController">
+        <fieldset>
+            <legend>Login Wellcome {{userData.username}} </legend>
+            <div class="form-group">
+                <label for="inputUserName" class="col-lg-2 control-label">User Name</label>
+                <div class="col-lg-10">
+                    <input class="form-control" id="inputUserName" placeholder="User Name" type="text" required="true" ng-model="userData.username">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                <div class="col-lg-10">
+                    <input class="form-control" id="inputPassword" placeholder="Password" type="password" required="true" ng-model="userData.password" >
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button href="#" class="btn btn-primary" type="submit" ng-click="login(userData)" ng-disabled="loginForm.$invalid">Login</button>
+                    <a href="#/register" class="btn btn-default">Register</a>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
