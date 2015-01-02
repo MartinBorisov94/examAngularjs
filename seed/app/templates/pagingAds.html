@@ -1,0 +1,45 @@
+
+<div class="row">
+    <div class="adds col-md-8" ng-controller="PaginatorController">
+        <div>
+            <button class="row btn btn-success" ng-click="beckPage()"> <<<< Beck</button>
+
+            <button class="row btn btn-danger pull-right" ng-click="nextPage()"> Next >>>></button>
+
+        </div>
+    <ul>
+        <!--    AD     -->
+        <li ng-repeat="ad in data.ads" total-items="totalAds">
+            <div class=" well col-md-11 "  >
+                <div class="row">
+                    <!--    AD Header     -->
+                    <h3 class="pull-left ">{{ ad.title }}</h3>
+                    <span class="pull-right">{{ ad.date | date: 'dd-MMM-yyyy' }}</span>
+                </div>
+                <div class="row">
+                    <!--    AD Container    -->
+                    <div class="col-md-4">
+                        <img class="imgContainer" ng-src="{{ad.imageDataUrl}}" src="../img/defImg.png">
+                    </div>
+                    <div class="col-md-8">
+                        <p>{{ ad.text }}</p>
+                        <ul>
+                            <li>
+                                <strong> Name: </strong> <span> {{ ad.ownerName }}</span>
+                            </li>
+                            <li>
+                                <strong> email:</strong> <span> {{ ad.ownerEmail }} </span>
+                            </li>
+                            <li>
+                                <strong> tel: </strong> <span> {{ ad.ownerPhone }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+</div>
+
+</div>
