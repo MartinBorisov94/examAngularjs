@@ -6,6 +6,10 @@ var app = angular.module('softUniApp', ['ngResource', 'ngRoute'])
             templateUrl: 'templates/allAds.html',
             controller: 'AllAdsController'
         });
+        $routeProvider.when('/sideBar', {
+            templateUrl: 'templates/sideBar.html',
+            controller: 'AllAdsController'
+        });
         $routeProvider.when('/', {
             templateUrl: 'templates/pagingAds.html',
             controller: 'PaginatorController'

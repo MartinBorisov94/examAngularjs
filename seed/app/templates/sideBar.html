@@ -1,0 +1,29 @@
+<div class="categores col-md-4" ng-controller="TownAndCategoryController">
+    <!--  Right Bar  -->
+    <div class="well col-md-11" >
+        <!--  Categories  -->
+        <h3 class="panel-heading"> Categories </h3>
+        <div class="row">
+            <div class="col-md-12">
+                <ul>
+                    <li><a src="#">All </a> </li>
+                    <li ng-repeat="category in categories.data"><a src="#">{{ category.name }} </a> </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--  Towns  -->
+        <h3 class="panel-heading"> Towns </h3>
+        <div class="row">
+            <div class="col-md-12" >
+                <ul>
+                    <li><a src="#" >All </a> </li>
+                    <li ng-repeat="town in towns.data"><a src="#">{{ town.name }} </a> </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
