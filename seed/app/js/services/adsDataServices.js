@@ -31,7 +31,12 @@ app.factory('adsData', function ($resource, $http) {
         return resource.delete({id: id});
     }
 
+    function getResultsPage(pageSize, pageNumber) {
+       return $http.get('http://localhost:1337/api/ads?pagesize='+ pageSize +'&startpage=' + pageNumber);
+    }
+
     return {
+        getResultsPage: getResultsPage,
         getAll: getAllAds,
         create: createNewAd,
         getById: getAdById,

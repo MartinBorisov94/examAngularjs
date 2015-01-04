@@ -1,35 +1,45 @@
-app.controller('PaginatorController', function($scope, $http) {
+app.controller('PaginatorController', function($scope, adsData, $log) {
     var pageSize = 3;
     var currentPage = 1;
-    getResultsPage(1);
+
+    adsData.getResultsPage(pageSize, currentPage)
+        .then(function(result) {
+            $scope.data = result.data;
+            $scope.pagesCount = result.data.numPages;
+        }, function (error) {
+            $log.error(error);
+        });
 
 
-    $scope.pagination = {
-        current: 1
-    };
-
-    $scope.pageChanged = function(newPage) {
-        getResultsPage(newPage);
-    };
-
-    function getResultsPage(pageNumber) {
-        // this is just an example, in reality this stuff should be in a service
+   /* function getResultsPage(pageNumber) {
         $http.get('http://localhost:1337/api/ads?pagesize='+ pageSize +'&startpage=' + pageNumber)
             .then(function(result) {
                 $scope.data = result.data;
                 $scope.pagesCount = result.data.numPages;
             });
     }
-
+*/
     $scope.nextPage = function(){
         currentPage++;
-        getResultsPage(currentPage);
+        adsData.getResultsPage(pageSize, currentPage)
+            .then(function(result) {
+                $scope.data = result.data;
+                $scope.pagesCount = result.data.numPages;
+            }, function (error) {
+                $log.error(error);
+            });
     };
 
     $scope.beckPage = function(){
         if(currentPage > 1){
             currentPage--;
-            getResultsPage(currentPage);
+            adsData.getResultsPage(pageSize, currentPage)
+                .then(function(result) {
+                    $scope.data = result.data;
+                    $scope.pagesCount = result.data.numPages;
+                }, function (error) {
+                    $log.error(error);
+                });
         }
     };
 });
