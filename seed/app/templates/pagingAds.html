@@ -1,14 +1,17 @@
 
 <div class="row">
     <div class="adds col-md-8" ng-controller="PaginatorController">
-        <div>
-            <button class="row btn btn-success" ng-click="beckPage()"> <<<< Beck</button>
+        <div class="col-md-1"></div>
+        <div class="col-md-9">
 
-            <button class="row btn btn-danger pull-right" ng-click="nextPage()"> Next >>>></button>
-
+            <div>
+                <button class="row btn btn-success" ng-click="beckPage()"> <<<< Beck</button>
+                <button class="row btn btn-danger pull-right" ng-click="nextPage()"> Next >>>></button>
+            </div>
         </div>
+
     <ul>
-        <!--    AD     -->
+        <!--    AD  ds   -->
         <li ng-repeat="ad in data.ads" total-items="totalAds">
             <div class=" well col-md-11 "  >
                 <div class="row">
@@ -19,7 +22,7 @@
                 <div class="row">
                     <!--    AD Container    -->
                     <div class="col-md-4">
-                        <img class="imgContainer" ng-src="{{ad.imageDataUrl}}" src="../img/defImg.png">
+                        <img class="imgContainer" ng-src="{{ad.imageDataUrl}}" src="img/defImg.png">
                     </div>
                     <div class="col-md-8">
                         <p>{{ ad.text }}</p>
@@ -38,8 +41,7 @@
                 </div>
             </div>
         </li>
-
     </ul>
-</div>
-
+    </div>
+    <div class="col-md-3 well" ng-include="'templates/sideBar.html'"> </div>
 </div>

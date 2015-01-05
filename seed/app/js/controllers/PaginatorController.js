@@ -1,11 +1,12 @@
 app.controller('PaginatorController', function($scope, adsData, $log) {
     var pageSize = 3;
     var currentPage = 1;
+    var countPage = 2;
 
     adsData.getResultsPage(pageSize, currentPage)
         .then(function(result) {
             $scope.data = result.data;
-            $scope.pagesCount = result.data.numPages;
+            countPage = result.data.numPages;
         }, function (error) {
             $log.error(error);
         });
@@ -19,15 +20,17 @@ app.controller('PaginatorController', function($scope, adsData, $log) {
             });
     }
 */
-    $scope.nextPage = function(){
-        currentPage++;
-        adsData.getResultsPage(pageSize, currentPage)
-            .then(function(result) {
-                $scope.data = result.data;
-                $scope.pagesCount = result.data.numPages;
-            }, function (error) {
-                $log.error(error);
-            });
+
+    $scope.nextPage = function() {
+        if (currentPage < countPage) {
+            currentPage++;
+            adsData.getResultsPage(pageSize, currentPage)
+                .then(function (result) {
+                    $scope.data = result.data;
+                }, function (error) {
+                    $log.error(error);
+                });
+        }
     };
 
     $scope.beckPage = function(){
@@ -36,7 +39,6 @@ app.controller('PaginatorController', function($scope, adsData, $log) {
             adsData.getResultsPage(pageSize, currentPage)
                 .then(function(result) {
                     $scope.data = result.data;
-                    $scope.pagesCount = result.data.numPages;
                 }, function (error) {
                     $log.error(error);
                 });

@@ -1,13 +1,18 @@
 'use strict';
 
-var app = angular.module('softUniApp', ['ngResource', 'ngRoute'])
+var app = angular.module('softUniApp', ['ngResource', 'ngRoute', 'ngCookies'])
     .config(function ($routeProvider) {
+
+     /*   var routeUserChecks = {
+            authenticated: {
+                authenticate: function(auth) {
+                    return auth.isAuthenticated();
+                }
+            }
+        };
+*/
         $routeProvider.when('/allAds', {
             templateUrl: 'templates/allAds.html',
-            controller: 'AllAdsController'
-        });
-        $routeProvider.when('/sideBar', {
-            templateUrl: 'templates/sideBar.html',
             controller: 'AllAdsController'
         });
         $routeProvider.when('/', {

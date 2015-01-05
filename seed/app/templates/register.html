@@ -50,7 +50,8 @@
             <div class="form-group">
                 <label for="townsId" class="col-lg-2 control-label">Towns</label>
                 <div class="col-lg-10" >
-                    <select class="form-control" id="townsId" ng-model="registerDate.town" ng-controller="TownAndCategoryController" >
+                    <select class="form-control" id="townsId" ng-model="registerDate.town"  ng-controller="TownAndCategoryController" >
+                        <option></option>
                         <option ng-repeat="town in towns.data" value="{{town.id}}" > {{ town.name }}</option>
                     </select>
                 </div>
