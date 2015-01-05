@@ -9,7 +9,7 @@ app.controller('LoginController',function ($scope, loginService, identityService
                 identityServices.setCurrentUser(answerDate.data.access_token);
 
             }, function (error) {
-                console.log("gre6ka");
+                console.log("LoginController errors");
             });
     };
 });

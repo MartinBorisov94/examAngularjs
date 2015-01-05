@@ -8,7 +8,7 @@ app.controller('RegisterController',function ($scope,registerServices, identityS
             /*console.log(answerDate.data.access_token);*/
                 identityServices.setCurrentUser(answerDate.data.access_token);
             }, function (error) {
-                console.log("gre6ka");
+                console.log("registerController errors");
             });
     };
 });

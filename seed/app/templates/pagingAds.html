@@ -1,16 +1,24 @@
 
+
+
 <div class="row">
     <div class="adds col-md-8" ng-controller="PaginatorController">
+
+        <div class="row" ng-hide="isLoaded">
+        <div class="col-lg-5" ></div>
+        <div class="col-md-2">
+            <img class="imgContainer" src="../img/loading.gif">
+        </div>
+    </div>
         <div class="col-md-1"></div>
         <div class="col-md-9">
-
-            <div>
+            <div  ng-show="isLoaded">
                 <button class="row btn btn-success" ng-click="beckPage()"> <<<< Beck</button>
                 <button class="row btn btn-danger pull-right" ng-click="nextPage()"> Next >>>></button>
             </div>
         </div>
 
-    <ul>
+    <ul ng-show="isLoaded">
         <!--    AD  ds   -->
         <li ng-repeat="ad in data.ads" total-items="totalAds">
             <div class=" well col-md-11 "  >
