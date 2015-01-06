@@ -5,6 +5,7 @@ var app = angular.module('app', ['ngRoute', 'ngResource', 'angular-loading-bar',
 app.constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net');
 app.constant('pageSize', 3);
 
+
 app.config(function ($routeProvider) {
 
     $routeProvider.when('/', {
@@ -15,6 +16,9 @@ app.config(function ($routeProvider) {
     $routeProvider.when('/login', {
         templateUrl: 'templates/login.html',
         controller: 'LoginController'
+/*
+        resolve: autorisation.isAutorisation
+*/
     });
     $routeProvider.when('/register', {
         templateUrl: 'templates/register.html',

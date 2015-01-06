@@ -14,7 +14,7 @@ app.controller('UserPublishNewAdController',
                     $location.path("/user/ads");
                 },
                 function error(err) {
-                    notifyService.showError('error');
+                    notifyService.showError('error', err);
                 }
             );
         };

@@ -1,16 +1,16 @@
-<div class="box">
+<div class="box ">
     <h2>Publish New Ad</h2>
     <p>
-        <label for="title">Title:</label>
+        <label for="title" class="col-lg-1 control-label">Title:</label>
         <input type="text" id="title" ng-model="adData.title" required />
     </p>
     <p>
-        <label for="txtArea">Text:</label>
+        <label for="txtArea" class="col-lg-1 control-label">Text:</label>
         <textarea  id="txtArea" ng-model="adData.text" required ></textarea>
     </p>
 
     <p>
-        <label for="category">Category:</label>
+        <label for="category" class="col-lg-1 control-label">Category:</label>
         <select id="category" ng-model="adData.categoryId">
             <option value="null">(None)</option>
             <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
@@ -18,7 +18,7 @@
     </p>
 
     <p>
-        <label for="town">Town:</label>
+        <label for="town" class="col-lg-1 control-label">Town:</label>
         <select id="town" ng-model="adData.townId">
             <option value="null">(None)</option>
             <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
@@ -26,19 +26,16 @@
     </p>
 
     <p>
-        <a ng-click="publishAd(adData)" class="button">Publish</a>
+        <a ng-click="publishAd(adData)" class="button" class="col-lg-1 control-label">Publish</a>
         <a href="#/user/ads" class="button">Cancel</a>
     <p>
 
     <p>
-        <label for="image">Image:</label>
+        <label for="image" class="col-lg-1 control-label">Image:</label>
         <input type="file" id="image"
                onchange="angular.element(this).scope().fileSelected(this)" />
     <div class="image-box">
         <p>Image Preview</p>
     </div>
     </p>
-
-
-
 </div>
