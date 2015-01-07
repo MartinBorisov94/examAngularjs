@@ -134,6 +134,29 @@ ul.sidebar-menu li a, ul.sidebar-menu li a:focus {
     cursor: pointer;
 }
 
+.buttonDeactivate, .buttonDeactivate:focus {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 1px;
+    background: red;
+    border: 2px solid #507E32;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 5px 20px;
+    display: inline-block;
+    margin: 5px 10px 0px 10px;
+    outline: none;
+}
+.buttonDeactivate:hover {
+    background: red;
+    border: 2px solid #649636;
+    text-decoration: none;
+    color: white;
+    text-shadow: rgba(0, 0, 0, 0.5) 1px 1px 1px;
+    cursor: pointer;
+}
+
 .link {
     color: #2E75B6;
     text-decoration: none;

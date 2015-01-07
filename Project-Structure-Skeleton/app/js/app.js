@@ -8,6 +8,19 @@ app.constant('pageSize', 3);
 
 app.config(function ($routeProvider) {
 
+/*    var routeUserChecks = {
+        adminRole: {
+            authenticate: function(auth) {
+                return auth.isAdmin();
+            }
+        },
+        authenticated: {
+            authenticate: function(auth) {
+                return auth.isAnonymous();
+            }
+        }
+    };*/
+
     $routeProvider.when('/', {
         templateUrl: 'templates/home.html',
         controller: 'HomeController'
@@ -15,10 +28,8 @@ app.config(function ($routeProvider) {
 
     $routeProvider.when('/login', {
         templateUrl: 'templates/login.html',
-        controller: 'LoginController'
-/*
-        resolve: autorisation.isAutorisation
-*/
+        controller: 'LoginController'/*,
+        resolve: routeUserChecks.authenticated*/
     });
     $routeProvider.when('/register', {
         templateUrl: 'templates/register.html',
@@ -28,6 +39,11 @@ app.config(function ($routeProvider) {
     $routeProvider.when('/user/ads/publish', {
         templateUrl: 'templates/user/publish-new-ad.html',
         controller: 'UserPublishNewAdController'
+    });
+
+    $routeProvider.when('/user/ads', {
+        templateUrl: 'templates/user/user-ads.html',
+        controller: 'UserAdsController'
     });
 
     $routeProvider.otherwise(
