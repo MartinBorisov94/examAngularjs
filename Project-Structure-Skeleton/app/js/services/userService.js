@@ -32,6 +32,16 @@ app.factory('userService',
                 $http(request).success(success).error(error);
             },
 
+            editUserAdById: function (id, adData, success, error) {
+                var request = {
+                    method: 'PUT',
+                    url: baseServiceUrl + '/api/user/ads/' + id,
+                    headers: authService.getAuthHeaders(),
+                    data: adData
+                };
+                $http(request).success(success).error(error);
+            },
+
             deactivateAd: function (id, success, error) {
                 var request = {
                     method: 'PUT',

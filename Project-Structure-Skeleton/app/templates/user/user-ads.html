@@ -17,7 +17,7 @@
             <p><strong>Town:</strong> {{ad.townName}}</p>
             <p><strong>Status:</strong> {{ad.status}}</p>
             <button class="button" ng-click="deactivateAd(ad.id)" ng-if="!isDisabled(ad.status)">Deactivate</button>
-            <button class="button" ng-click="editAd(ad.id)" ng-if="isDisabled(ad.status)" >Edit</button>
+            <button class="button" ng-click="getAd(ad.id)" ng-if="isDisabled(ad.status)" >Edit</button>
         </li>
     </ul>
 </div>
@@ -27,40 +27,42 @@
 </div>
 
 
-<!-- Edit AD  -->
+            <!--------------- Edit AD ------------------->
 <div class="box" ng-if="isEdit">
-        <h1 class="text-center">  Edit Ad  </h1>
-        <div class="form-group">
-            <label for="inputTitle" class="col-lg-2 control-label">Title</label>
-            <div class="col-lg-10">
-                <input class="form-control" id="inputTitle" ng-value="userAd.title" type="text">
-            </div>
+    <h1 class="text-center">  Edit Ad  </h1>
+    <div class="form-group">
+        <label for="inputTitle" class="col-lg-2 control-label">Title</label>
+        <div class="col-lg-10">
+            <input class="form-control" id="inputTitle"  type="text" ng-model="userAd.title">
         </div>
+    </div>
 
-        <div class="form-group">
-            <label for="textArea" class="col-lg-2 control-label">Textarea</label>
-            <div class="col-lg-10">
-                <textarea class="form-control" rows="3" id="textArea" >{{userAd.text}}</textarea>
-            </div>
+    <div class="form-group">
+        <label for="textArea" class="col-lg-2 control-label">Text area</label>
+        <div class="col-lg-10">
+            <textarea class="form-control" rows="3" id="textArea" ng-model="userAd.text">{{userAd.text}}</textarea>
         </div>
+    </div>
 
-        <div class="form-group">
-            <label for="categoryDropdown" class="col-lg-2 control-label">Category</label>
-            <div class="col-lg-10">
-                <select class="form-control" id="categoryDropdown">
-                </select>
-            </div>
+    <div class="form-group">
+        <label for="categoryDropdown" class="col-lg-2 control-label">Category</label>
+        <div class="col-lg-10">
+            <select class="form-control" id="categoryDropdown"   ng-model="userAd.categoryId">
+                <option value="{{userAd.categoryId}}">{{userAd.categoryName}}</option>
+                <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
+            </select>
         </div>
+    </div>
 
-        <div class="form-group">
+    <div class="form-group">
             <label for="townDropdown" class="col-lg-2 control-label">Town</label>
             <div class="col-lg-10">
-                <select class="form-control" id="townDropdown">
-
+                <select class="form-control" id="townDropdown"  ng-model="userAd.townId">
+                    <option value="{{userAd.townId}}">{{userAd.townName}}</option>
+                    <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
                 </select>
             </div>
         </div>
-
 
     <div class="form-group">
         <label for="imageUrl" class="col-lg-2 control-label">Image</label>
@@ -70,7 +72,6 @@
         <div class="col-md-10"></div>
     </div>
 
-
     <!--   Image option   -->
     <div class="row">
         <div class="col-md-4"></div>
@@ -78,24 +79,10 @@
         <button class="button">Delete Image</button><br/>
         <div class="col-md-5 "></div>
         <img class="ad-image" src="img/def.png" ng-src="{{userAd.imageDataUrl}}">
-
     </div>
-
-  <!--  <div class="form-group">
-        <div class="col-lg-10 col-lg-offset-2">
-            <button class="btn btn-default">Cancel</button>
-            <button type="submit" class="btn btn-primary">Edit</button>
-        </div>
-    </div>
-            <strong>Image:</strong>
-        </div>
-        <p><strong>Text:</strong>{{userAd.text}}</p>
-        <p><strong>Category:</strong> {{userAd.categoryName}}</p>
-        <p><strong>Town:</strong> {{userAd.townName}}</p>
-
-    </div>-->
 
     <button class="button" ng-click="beckToAds()"> Beck </button>
+    <button class="button" ng-click="submitAd(userAd.id, userAd)"> Submit </button>
 
 </div>
 
