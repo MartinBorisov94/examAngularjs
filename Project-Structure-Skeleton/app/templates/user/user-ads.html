@@ -1,24 +1,102 @@
-<pagination total-items="userAds.numItems" ng-model="adsParams.startPage"
-            items-per-page="adsParams.pageSize" ng-change="reloadUserAds()"
-            max-size="9" boundary-links="true">
-</pagination>
+<div ng-if="!isEdit">
+    <pagination total-items="userAds.numItems" ng-model="adsParams.startPage"
+                items-per-page="adsParams.pageSize" ng-change="reloadUserAds()"
+                max-size="9" boundary-links="true">
+    </pagination>
 
-<ul class="ads">
-    <li ng-repeat="ad in userAds.ads" class="box">
-        <h1>{{ad.title}}</h1>
-        <div><strong>Date:</strong> {{ad.date | date:'dd-MMM-yyyy'}}</div>
-        <div >
-            <strong>Image:</strong>
-            <img class="ad-image" src="img/def.png" ng-src="{{ad.imageDataUrl}}" />
-        </div>
-        <p><strong>Text:</strong>{{ad.text}}</p>
-        <p><strong>Category:</strong> {{ad.categoryName}}</p>
-        <p><strong>Town:</strong> {{ad.townName}}</p>
-        <p><strong>Status:</strong> {{ad.status}}</p>
-        <button class="button" ng-click="deactivateAd(ad.id)" ng-click="isDisabled(ad.status)" ng-disabled="isDisabled(ad.status)">Deactivate</button>
-    </li>
-</ul>
+    <ul class="ads">
+        <li ng-repeat="ad in userAds.ads" class="box">
+            <h1>{{ad.title}}</h1>
+            <div><strong>Date:</strong> {{ad.date | date:'dd-MMM-yyyy'}}</div>
+            <div >
+                <strong>Image:</strong>
+                <img class="ad-image" src="img/def.png" ng-src="{{ad.imageDataUrl}}" />
+            </div>
+            <p><strong>Text:</strong>{{ad.text}}</p>
+            <p><strong>Category:</strong> {{ad.categoryName}}</p>
+            <p><strong>Town:</strong> {{ad.townName}}</p>
+            <p><strong>Status:</strong> {{ad.status}}</p>
+            <button class="button" ng-click="deactivateAd(ad.id)" ng-if="!isDisabled(ad.status)">Deactivate</button>
+            <button class="button" ng-click="editAd(ad.id)" ng-if="isDisabled(ad.status)" >Edit</button>
+        </li>
+    </ul>
+</div>
 
 <div ng-if="ads.ads.length==0" class="box no-data">
     No ads found.
 </div>
+
+
+<!-- Edit AD  -->
+<div class="box" ng-if="isEdit">
+        <h1 class="text-center">  Edit Ad  </h1>
+        <div class="form-group">
+            <label for="inputTitle" class="col-lg-2 control-label">Title</label>
+            <div class="col-lg-10">
+                <input class="form-control" id="inputTitle" ng-value="userAd.title" type="text">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="textArea" class="col-lg-2 control-label">Textarea</label>
+            <div class="col-lg-10">
+                <textarea class="form-control" rows="3" id="textArea" >{{userAd.text}}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="categoryDropdown" class="col-lg-2 control-label">Category</label>
+            <div class="col-lg-10">
+                <select class="form-control" id="categoryDropdown">
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="townDropdown" class="col-lg-2 control-label">Town</label>
+            <div class="col-lg-10">
+                <select class="form-control" id="townDropdown">
+
+                </select>
+            </div>
+        </div>
+
+
+    <div class="form-group">
+        <label for="imageUrl" class="col-lg-2 control-label">Image</label>
+        <div class="col-lg-10">
+            <input class="btn-primary" id="imageUrl" placeholder="Image" type="file" onchange="angular.element(this).scope().fileSelected(this)">
+        </div>
+        <div class="col-md-10"></div>
+    </div>
+
+
+    <!--   Image option   -->
+    <div class="row">
+        <div class="col-md-4"></div>
+        <button class="button">Change image</button>
+        <button class="button">Delete Image</button><br/>
+        <div class="col-md-5 "></div>
+        <img class="ad-image" src="img/def.png" ng-src="{{userAd.imageDataUrl}}">
+
+    </div>
+
+  <!--  <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+            <button class="btn btn-default">Cancel</button>
+            <button type="submit" class="btn btn-primary">Edit</button>
+        </div>
+    </div>
+            <strong>Image:</strong>
+        </div>
+        <p><strong>Text:</strong>{{userAd.text}}</p>
+        <p><strong>Category:</strong> {{userAd.categoryName}}</p>
+        <p><strong>Town:</strong> {{userAd.townName}}</p>
+
+    </div>-->
+
+    <button class="button" ng-click="beckToAds()"> Beck </button>
+
+</div>
+
+<!--ng-disabled="isDisabled(ad.status)"-->

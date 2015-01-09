@@ -1,0 +1,13 @@
+<ul class="ads">
+    <li class="box">
+        <h1>{{userAd.title}}</h1>
+        <div><strong>Date:</strong> {{userAd.date | date:'dd-MMM-yyyy'}}</div>
+        <div >
+            <strong>Image:</strong>
+            <img class="ad-image" src="img/def.png" ng-src="{{userAd.imageDataUrl}}" />
+        </div>
+        <p><strong>Text:</strong>{{userAd.text}}</p>
+        <p><strong>Category:</strong> {{userAd.categoryName}}</p>
+        <p><strong>Town:</strong> {{userAd.townName}}</p>
+    </li>
+</ul>

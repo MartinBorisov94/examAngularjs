@@ -7,6 +7,14 @@ app.controller('UserAdsController',
             'pageSize' : pageSize
         };
 
+        $scope.isEdit = false;
+
+
+        /*$scope.cukam = function(params){
+            console.log("cukat me ++" + params);
+        };*/
+
+
         $scope.reloadUserAds = function() {
             userService.getUserAds(
                 $scope.adsParams,
@@ -24,6 +32,7 @@ app.controller('UserAdsController',
                 id,
                 function success(data){
                     $scope.userAds = data;
+                    $scope.reloadUserAds();
                 },
                 function error(err) {
                     notifyService.showError("Cannot load ads", err);
@@ -40,5 +49,24 @@ app.controller('UserAdsController',
         };
 
         $scope.reloadUserAds();
+
+        $scope.editAd = function(id){
+            userService.getUserAdById(
+                id,
+                function success(data) {
+                    $scope.userAd = data;
+                    $scope.isEdit = true;
+                },
+                function error(err) {
+                    notifyService.showError("Cannot load ads", err);
+                }
+
+            );
+        };
+
+        $scope.beckToAds= function(){
+            $scope.isEdit = false;
+        }
+
     }
 );

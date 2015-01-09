@@ -8,14 +8,6 @@ app.controller('RightSidebarController',
 
         $scope.categoryClicked = function(clickedCategoryId) {
             $scope.selectedCategoryId = clickedCategoryId;
-        };
-
-        $scope.townClicked = function(clickedTownId) {
-            $scope.selectedTownId = clickedTownId;
-        };
-
-        $scope.categoryClicked = function(clickedCategoryId) {
-            $scope.selectedCategoryId = clickedCategoryId;
             $rootScope.$broadcast("categorySelectionChanged", clickedCategoryId);
         };
 

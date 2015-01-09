@@ -8,18 +8,22 @@ app.constant('pageSize', 3);
 
 app.config(function ($routeProvider) {
 
-/*    var routeUserChecks = {
+  /*  var routeUserChecks = {
         adminRole: {
-            authenticate: function(auth) {
-                return auth.isAdmin();
+            authenticate: function(authService) {
+                return authService.isAdmin();
             }
         },
         authenticated: {
-            authenticate: function(auth) {
-                return auth.isAnonymous();
+            authenticate: function(authService) {
+                console.log(authService.isLoggedIn());
+                return authService.isLoggedIn();
             }
         }
-    };*/
+    };
+
+    resolve: routeUserChecks.authenticated
+*/
 
     $routeProvider.when('/', {
         templateUrl: 'templates/home.html',
@@ -28,8 +32,7 @@ app.config(function ($routeProvider) {
 
     $routeProvider.when('/login', {
         templateUrl: 'templates/login.html',
-        controller: 'LoginController'/*,
-        resolve: routeUserChecks.authenticated*/
+        controller: 'LoginController'
     });
     $routeProvider.when('/register', {
         templateUrl: 'templates/register.html',
@@ -45,6 +48,13 @@ app.config(function ($routeProvider) {
         templateUrl: 'templates/user/user-ads.html',
         controller: 'UserAdsController'
     });
+
+    /*    $routeProvider.when('/user/editUserAd', {
+        templateUrl: 'templates/user/edit-ad.html',
+        controller: 'UserAdsController'
+    });*/
+
+
 
     $routeProvider.otherwise(
         { redirectTo: '/' }

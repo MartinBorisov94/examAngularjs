@@ -27,6 +27,29 @@
     </ul>
 </div>
 
+<div class="box" ng-controller="UserAdsController">
+    <h2>My Ads</h2>
+    <ul class="sidebar-menu">
+        <li class="special"
+            ng-class="selected">
+            All
+        </li>
+        <<!--li ng-click="reloadUserAds('Published')">
+            Published
+        </li>
+        <li ng-click="cukam('WaitingApproval')">
+            Waiting Approval
+        </li>
+        <li ng-click="cukam('Inactive')">
+            Inactive
+        </li>
+        <li>
+            Rejected
+        </li>-->
+    </ul>
+</div>
+
+
 <!-- Navigation box for logged in admins -->
 <div ng-if="authService.isAdmin()" class="box">
     <!-- TODO: implement the “Admin” navigation sidebar -->

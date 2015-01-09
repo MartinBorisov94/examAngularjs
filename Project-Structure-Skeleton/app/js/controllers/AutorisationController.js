@@ -1,5 +1,5 @@
 'use strict';
-// TODO
+// TODO NE raboti
 app.controller('AutorisationController',
     function ($scope,$rootScope ,authService) {
 
