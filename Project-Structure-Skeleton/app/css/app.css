@@ -201,3 +201,10 @@ ul.sidebar-menu li a, ul.sidebar-menu li a:focus {
     max-width: 150px;
     max-height: 150px;
 }
+.newAdInput{
+    width: 400px;
+    margin-left: 20px;
+}
+.center-ne-ad{
+    margin-left: 150px;
+}
