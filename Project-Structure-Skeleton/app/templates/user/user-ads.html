@@ -18,6 +18,7 @@
             <p><strong>Status:</strong> {{ad.status}}</p>
             <button class="button" ng-click="deactivateAd(ad.id)" ng-if="!isDisabled(ad.status)">Deactivate</button>
             <button class="button" ng-click="getAd(ad.id)" ng-if="isDisabled(ad.status)" >Edit</button>
+            <a href="#/user/ads/edit/:id" class="button" ng-click="deleteAd(ad.id, ad.title)" ng-if="isDisabled(ad.status)" >Delete</a>
         </li>
     </ul>
 </div>
@@ -75,15 +76,21 @@
     <!--   Image option   -->
     <div class="row">
         <div class="col-md-4"></div>
-        <button class="button">Change image</button>
+        <button class="button" >Change image</button>
         <button class="button">Delete Image</button><br/>
         <div class="col-md-5 "></div>
-        <img class="ad-image" src="img/def.png" ng-src="{{userAd.imageDataUrl}}">
+        <img class="ad-image" src="img/def.png" ng-src="{{userAd.imageDataUrl}}" ng-hide="fileSelected.imgChange">
+        <div class="image-box" ng-show="fileSelected.imgChange">
+            <p>Image Preview</p>
+        </div>
     </div>
 
     <button class="button" ng-click="beckToAds()"> Beck </button>
-    <button class="button" ng-click="submitAd(userAd.id, userAd)"> Submit </button>
+    <button class="button" ng-click="submitEditAd(userAd.id, userAd)"> Submit </button>
+
 
 </div>
+
+
 
 <!--ng-disabled="isDisabled(ad.status)"-->

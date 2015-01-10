@@ -49,6 +49,10 @@ app.config(function ($routeProvider) {
         controller: 'UserAdsController'
     });
 
+    /*$routeProvider.when('/user/ads/edit/:id',{
+        templateUrl: 'templates/user/edit.html'
+    });*/
+
     /*    $routeProvider.when('/user/editUserAd', {
         templateUrl: 'templates/user/edit-ad.html',
         controller: 'UserAdsController'

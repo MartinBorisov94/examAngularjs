@@ -10,12 +10,7 @@ app.controller('UserAdsController',
         $scope.isEdit = false;
         $scope.towns = townsService.getTowns();
         $scope.categories = categoriesService.getCategories();
-
-
-        /*$scope.cukam = function(params){
-            console.log("cukat me ++" + params);
-        };*/
-
+            $scope.imgChange = false;
 
         $scope.reloadUserAds = function() {
             userService.getUserAds(
@@ -62,11 +57,10 @@ app.controller('UserAdsController',
                 function error(err) {
                     notifyService.showError("Cannot load ad", err);
                 }
-
             );
         };
 
-        $scope.submitAd = function(id, adData){
+        $scope.submitEditAd = function(id, adData){
                 userService.editUserAdById(id, adData,
                     function success() {
                         notifyService.showInfo('Success');
@@ -76,6 +70,45 @@ app.controller('UserAdsController',
                         notifyService.showError('error', err);
                     }
                 );
+        };
+
+        $scope.deleteAd = function(id, title){
+            var confermDelete = confirm("Confirm delete ad with title: " + title);
+            if(confermDelete){
+                userService.deleteAd(id,
+                    function success(date) {
+                        notifyService.showInfo('Successful delete' + date);
+                    },
+                    function error(err) {
+                        notifyService.showError('error', err);
+                    }
+                );
+            }
+            else{
+                notifyService.showInfo('Delete ad stopped');
+            }
+        };
+
+
+
+        // img live preview
+        $scope.fileSelected = function(fileInputField) {
+            delete $scope.imageDataUrl;
+            var file = fileInputField.files[0];
+            if (file.type.match(/image\/.*/)) {
+                var reader = new FileReader();
+                reader.onload = function() {
+                    $scope.imageDataUrl = reader.result;
+                    $(".image-box").html("<img src='" + reader.result + "'>");
+                };
+                reader.readAsDataURL(file);
+
+                // Ne se obnovva ???
+                $scope.imgChange = true;
+
+            } else {
+                $(".image-box").html("<p>File type not supported!</p>");
+            }
         };
 
         $scope.beckToAds= function(){
