@@ -6,6 +6,7 @@ app.constant('baseServiceUrl', 'http://softuni-ads.azurewebsites.net');
 app.constant('pageSize', 4);
 
 
+
 app.config(function ($routeProvider) {
 
   /*  var routeUserChecks = {
@@ -49,9 +50,11 @@ app.config(function ($routeProvider) {
         controller: 'UserAdsController'
     });
 
-    /*$routeProvider.when('/user/ads/edit/:id',{
-        templateUrl: 'templates/user/edit.html'
-    });*/
+    $routeProvider.when('/user/editProfile', {
+        templateUrl: 'templates/user/edit-profile.html'
+    });
+
+
 
     /*    $routeProvider.when('/user/editUserAd', {
         templateUrl: 'templates/user/edit-ad.html',

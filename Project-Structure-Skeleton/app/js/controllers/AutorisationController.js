@@ -1,4 +1,4 @@
-'use strict';
+/*'use strict';
 // TODO NE raboti
 app.controller('AutorisationController',
     function ($scope,$rootScope ,authService) {
@@ -18,4 +18,4 @@ app.controller('AutorisationController',
         }
 
     }
-);
+);*/

@@ -1,100 +1,101 @@
-<div ng-if="!isEdit">
-    <pagination total-items="userAds.numItems" ng-model="adsParams.startPage"
-                items-per-page="adsParams.pageSize" ng-change="reloadUserAds()"
-                max-size="9" boundary-links="true">
-    </pagination>
+<div class="col-md-10">
+    <div ng-if="!isEdit">
+        <pagination total-items="userAds.numItems" ng-model="adsParams.startPage"
+                    items-per-page="adsParams.pageSize" ng-change="reloadUserAds()"
+                    max-size="9" boundary-links="true">
+        </pagination>
 
-    <ul class="ads">
-        <li ng-repeat="ad in userAds.ads" class="box">
-            <div class="row">
-                <h1 class="text-center text-uppercase">{{ad.title}}</h1>
-                <div class="pull-right text-primary">{{ad.date | date:'dd-MMM-yyyy'}}</div>
-                <div class="col-lg-3">
-                    <img class="ad-image" src="img/def.png" ng-src="{{ad.imageDataUrl}}" />
+        <ul class="ads">
+            <li ng-repeat="ad in userAds.ads" class="box">
+                <div class="row">
+                    <h1 class="text-center text-uppercase">{{ad.title}}</h1>
+                    <div class="pull-right text-primary">{{ad.date | date:'dd-MMM-yyyy'}}</div>
+                    <div class="col-lg-3">
+                        <img class="ad-image" src="img/def.png" ng-src="{{ad.imageDataUrl}}" />
+                    </div>
+                    <div class="col-md-5">
+                        <p><strong>Text: </strong>{{ad.text}}</p>
+                        <p><strong>Category: </strong>{{ad.categoryName}}</p>
+                        <p><strong>Town: </strong>{{ad.townName}}</p>
+                        <p><strong>Status: </strong>{{ad.status}}</p>
+                        <button class="button" ng-click="deactivateAd(ad.id)" ng-if="!isDisabled(ad.status)">Deactivate</button>
+                        <button class="button" ng-click="getAd(ad.id)" ng-if="isDisabled(ad.status)" >Edit</button>
+                        <a href="#/user/ads/edit/:id" class="button" ng-click="deleteAd(ad.id, ad.title)" ng-if="isDisabled(ad.status)" >Delete</a>
+                    </div>
                 </div>
-                <div class="col-md-5">
-                    <p><strong>Text: </strong>{{ad.text}}</p>
-                    <p><strong>Category: </strong>{{ad.categoryName}}</p>
-                    <p><strong>Town: </strong>{{ad.townName}}</p>
-                    <p><strong>Status: </strong>{{ad.status}}</p>
-                    <button class="button" ng-click="deactivateAd(ad.id)" ng-if="!isDisabled(ad.status)">Deactivate</button>
-                    <button class="button" ng-click="getAd(ad.id)" ng-if="isDisabled(ad.status)" >Edit</button>
-                    <a href="#/user/ads/edit/:id" class="button" ng-click="deleteAd(ad.id, ad.title)" ng-if="isDisabled(ad.status)" >Delete</a>
-                </div>
-            </div>
 
-        </li>
-    </ul>
-</div>
-
-<div ng-if="ads.ads.length==0" class="box no-data">
-    No ads found.
-</div>
-
-
-            <!--------------- Edit AD ------------------->
-<div class="box" ng-if="isEdit">
-    <h1 class="text-center">  Edit Ad  </h1>
-    <div class="form-group">
-        <label for="inputTitle" class="col-lg-2 control-label">Title</label>
-        <div class="col-lg-10">
-            <input class="form-control" id="inputTitle"  type="text" ng-model="userAd.title">
-        </div>
+            </li>
+        </ul>
     </div>
 
-    <div class="form-group">
-        <label for="textArea" class="col-lg-2 control-label">Text area</label>
-        <div class="col-lg-10">
-            <textarea class="form-control" rows="3" id="textArea" ng-model="userAd.text">{{userAd.text}}</textarea>
-        </div>
+    <div ng-if="ads.ads.length==0" class="box no-data">
+        No ads found.
     </div>
 
-    <div class="form-group">
-        <label for="categoryDropdown" class="col-lg-2 control-label">Category</label>
-        <div class="col-lg-10">
-            <select class="form-control" id="categoryDropdown"   ng-model="userAd.categoryId">
-                <option value="{{userAd.categoryId}}">{{userAd.categoryName}}</option>
-                <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
-            </select>
-        </div>
-    </div>
 
-    <div class="form-group">
-            <label for="townDropdown" class="col-lg-2 control-label">Town</label>
+                <!--------------- Edit AD ------------------->
+    <div class="box" ng-if="isEdit">
+        <h1 class="text-center">  Edit Ad  </h1>
+        <div class="form-group">
+            <label for="inputTitle" class="col-lg-2 control-label">Title</label>
             <div class="col-lg-10">
-                <select class="form-control" id="townDropdown"  ng-model="userAd.townId">
-                    <option value="{{userAd.townId}}">{{userAd.townName}}</option>
-                    <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
+                <input class="form-control" id="inputTitle"  type="text" ng-model="userAd.title">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="textArea" class="col-lg-2 control-label">Text area</label>
+            <div class="col-lg-10">
+                <textarea class="form-control" rows="3" id="textArea" ng-model="userAd.text">{{userAd.text}}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="categoryDropdown" class="col-lg-2 control-label">Category</label>
+            <div class="col-lg-10">
+                <select class="form-control" id="categoryDropdown"   ng-model="userAd.categoryId">
+                    <option value="{{userAd.categoryId}}">{{userAd.categoryName}}</option>
+                    <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
                 </select>
             </div>
         </div>
 
-    <div class="form-group">
-        <label for="imageUrl" class="col-lg-2 control-label">Image</label>
-        <div class="col-lg-10">
-            <input class="btn-primary" id="imageUrl" placeholder="Image" type="file" onchange="angular.element(this).scope().fileSelected(this)">
-        </div>
-        <div class="col-md-10"></div>
-    </div>
+        <div class="form-group">
+                <label for="townDropdown" class="col-lg-2 control-label">Town</label>
+                <div class="col-lg-10">
+                    <select class="form-control" id="townDropdown"  ng-model="userAd.townId">
+                        <option value="{{userAd.townId}}">{{userAd.townName}}</option>
+                        <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
+                    </select>
+                </div>
+            </div>
 
-    <!--   Image option   -->
-    <div class="row">
-        <div class="col-md-4"></div>
-        <button class="button" >Change image</button>
-        <button class="button">Delete Image</button><br/>
-        <div class="col-md-5 "></div>
-        <img class="ad-image" src="img/def.png" ng-src="{{userAd.imageDataUrl}}" ng-hide="fileSelected.imgChange">
-        <div class="image-box" ng-show="fileSelected.imgChange">
-            <p>Image Preview</p>
+        <div class="form-group">
+            <label for="imageUrl" class="col-lg-2 control-label">Image</label>
+            <div class="col-lg-10">
+                <input class="btn-primary" id="imageUrl" placeholder="Image" type="file" onchange="angular.element(this).scope().fileSelected(this)">
+            </div>
+            <div class="col-md-10"></div>
         </div>
-    </div>
 
-    <button class="button" ng-click="beckToAds()"> Beck </button>
-    <button class="button" ng-click="submitEditAd(userAd.id, userAd)"> Submit </button>
+        <!--   Image option   -->
+        <div class="row">
+            <div class="col-md-4"></div>
+            <button class="button" >Change image</button>
+            <button class="button">Delete Image</button><br/>
+            <div class="col-md-5 "></div>
+            <img class="ad-image" src="img/def.png" ng-src="{{userAd.imageDataUrl}}" ng-hide="fileSelected.imgChange">
+            <div class="image-box" ng-show="fileSelected.imgChange">
+                <p>Image Preview</p>
+            </div>
+        </div>
+
+        <button class="button" ng-click="beckToAds()"> Beck </button>
+        <button class="button" ng-click="submitEditAd(userAd.id, userAd)"> Submit </button>
+
+
+    </div>
 
 
 </div>
-
-
-
 <!--ng-disabled="isDisabled(ad.status)"-->

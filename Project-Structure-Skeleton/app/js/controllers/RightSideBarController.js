@@ -5,6 +5,7 @@ app.controller('RightSidebarController',
     function ($scope, $rootScope, categoriesService, townsService) {
         $scope.categories = categoriesService.getCategories();
         $scope.towns = townsService.getTowns();
+        $rootScope.showRightSideBar = true;
 
         $scope.categoryClicked = function(clickedCategoryId) {
             $scope.selectedCategoryId = clickedCategoryId;

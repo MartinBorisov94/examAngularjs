@@ -48,7 +48,7 @@ app.factory('authService',
 
             isNormalUser : function() {
                 var currentUser = this.getCurrentUser();
-                return (currentUser != undefined) && (!currentUser.isAdmin);
+                return (currentUser != undefined);      // && (!currentUser.isAdmin)
             },
 
             isAdmin : function() {

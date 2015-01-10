@@ -1,3 +1,4 @@
+<div class="col-md-10">
 <pagination total-items="ads.numItems" ng-model="adsParams.startPage"
             items-per-page="adsParams.pageSize" ng-change="reloadAds()"
             max-size="9" boundary-links="true">
@@ -21,7 +22,11 @@
     </div>
 </li>
 </ul>
-
+</div>
 <div ng-if="ads.ads.length==0" class="box no-data">
     No ads found.
+</div>
+
+<div class='col-md-2 sidebar' ng-controller="RightSidebarController">
+    <div  ng-include="'templates/partial/right-sidebar.html'"></div>
 </div>

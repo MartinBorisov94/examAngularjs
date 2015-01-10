@@ -1,43 +1,45 @@
-<div class="box">
-    <h2 class='text-center'>Publish New Ad</h2>
-    <div class="center-ne-ad">
-    <p>
-        <label for="title" class="col-lg-1 control-label">Title:</label>
-        <input type="text" id="title" ng-model="adData.title" class="newAdInput" required />
-    </p>
-    <p>
-        <label for="txtArea" class="col-lg-1 control-label">Text:</label>
-        <textarea  id="txtArea" ng-model="adData.text" class="newAdInput" required ></textarea>
-    </p>
+<div class="col-md-10">
+    <div class="box">
+        <h2 class='text-center'>Publish New Ad</h2>
+        <div class="center-ne-ad">
+        <p>
+            <label for="title" class="col-lg-1 control-label">Title:</label>
+            <input type="text" id="title" ng-model="adData.title" class="newAdInput" required />
+        </p>
+        <p>
+            <label for="txtArea" class="col-lg-1 control-label">Text:</label>
+            <textarea  id="txtArea" ng-model="adData.text" class="newAdInput" required ></textarea>
+        </p>
 
-    <p>
-        <label for="category" class="col-lg-1 control-label">Category:</label>
-        <select id="category" ng-model="adData.categoryId" class="newAdInput">
-            <option value="null">(None)</option>
-            <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
-        </select>
-    </p>
+        <p>
+            <label for="category" class="col-lg-1 control-label">Category:</label>
+            <select id="category" ng-model="adData.categoryId" class="newAdInput">
+                <option value="null">(None)</option>
+                <option ng-repeat="category in categories" value="{{category.id}}">{{category.name}}</option>
+            </select>
+        </p>
 
-    <p>
-        <label for="town" class="col-lg-1 control-label">Town:</label>
-        <select id="town" ng-model="adData.townId" class="newAdInput">
-            <option value="null">(None)</option>
-            <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
-        </select>
-    </p>
-    <p>
-        <label for="image" class="col-lg-1 control-label ">Image:</label>
-        <input class="newAdInput" type="file" id="image"
-                   onchange="angular.element(this).scope().fileSelected(this)" />
-    </p>
-        <div class="image-box">
-        <p>Image Preview</p>
+        <p>
+            <label for="town" class="col-lg-1 control-label">Town:</label>
+            <select id="town" ng-model="adData.townId" class="newAdInput">
+                <option value="null">(None)</option>
+                <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
+            </select>
+        </p>
+        <p>
+            <label for="image" class="col-lg-1 control-label ">Image:</label>
+            <input class="newAdInput button" type="file" id="image"
+                       onchange="angular.element(this).scope().fileSelected(this)" />
+        </p>
+            <div class="image-box">
+            <p>Image Preview</p>
+        </div>
     </div>
-</div>
 
-    <p class="text-center">
-        <a ng-click="publishAd(adData)" class="button" >Publish</a>
-        <a href="#/user/ads" class="button">Cancel</a>
-    </p>
+        <p class="text-center">
+            <a ng-click="publishAd(adData)" class="button" >Publish</a>
+            <a href="#/user/ads" class="button">Cancel</a>
+        </p>
 
+    </div>
 </div>
