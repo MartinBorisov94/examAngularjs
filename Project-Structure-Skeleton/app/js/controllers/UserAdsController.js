@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('UserAdsController',
-    function ($scope, $location, userService, notifyService, pageSize, townsService, categoriesService) {
+    function ($scope, $location, $window, userService, notifyService, pageSize, townsService, categoriesService) {
         $scope.adsParams = {
             'startPage' : 1,
             'pageSize' : pageSize
@@ -70,6 +70,19 @@ app.controller('UserAdsController',
                         notifyService.showError('error', err);
                     }
                 );
+        };
+
+        $scope.publishAgineAd = function(id){
+            userService.publishAgainAd(
+                id,
+                function success(){
+                    notifyService.showInfo("Ad was published again");
+                    $window.location.reload();
+                },
+                function error(err){
+                    notifyService.showError("Ad wasn't published", err)
+                }
+            )
         };
 
         $scope.deleteAd = function(id, title){
