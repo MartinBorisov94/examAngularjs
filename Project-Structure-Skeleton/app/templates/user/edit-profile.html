@@ -1,3 +1,83 @@
-<div class="box">
-    <h2> Edit</h2>
+<div class="col-md-1"></div>
+<!--   Eding Profile   -->
+<div class="col-lg-4">
+    <form class="form-horizontal box" ng-controller="EditProfileController">
+        <fieldset>
+            <legend>Edit Profile</legend>
+            <div class="form-group">
+                <label for="inputName" class="col-lg-2 control-label">Name</label>
+                <div class="col-lg-10">
+                    <input class="form-control" id="inputName" ng-model="userInformation.name" type="text">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                <div class="col-lg-10">
+                    <input class="form-control" id="inputEmail" ng-model="userInformation.email" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPhone" class="col-lg-2 control-label">Phone</label>
+                <div class="col-lg-10">
+                    <input class="form-control" id="inputPhone" ng-model="userInformation.phoneNumber" type="text">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="selectTown" class="col-lg-2 control-label">Town</label>
+                <div class="col-lg-10">
+                    <select class="form-control" id="selectTown" >
+                        <option ng-repeat="town in towns">{{town.name}}</option>
+                        <option value="{{userInformation.townId}}">{{userInformation.townId }}</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button class="btn btn-default">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<div class="col-md-1"></div>
+
+<!--  Change passwor  -->
+<div class="col-lg-5" ng-controller="EditProfileController">
+    <form class="form-horizontal box">
+        <fieldset>
+            <legend>Change Password</legend>
+            <div class="form-group">
+                <label for="inputOldPassword" class="col-lg-3 control-label">Old password</label>
+                <div class="col-lg-9">
+                    <input class="form-control" id="inputOldPassword" placeholder="Old password" type="password" ng-model="passwordData.oldPassword">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputNewPassword" class="col-lg-3 control-label">New Password</label>
+                <div class="col-lg-9">
+                    <input class="form-control" id="inputNewPassword" placeholder="New Password" type="password" ng-model="passwordData.newPassword">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputConfirmPasswrod" class="col-lg-3 control-label">Confirm new password</label>
+                <div class="col-lg-9">
+                    <input class="form-control" id="inputConfirmPasswrod" placeholder="Confirm new password" type="password" ng-model="passwordData.confirmPassword">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button class="btn btn-default">Cancel</button>
+                    <a class="btn btn-primary" ng-click="submitChange(passwordData)">Change Password</a>
+                </div>
+            </div>
+        </fieldset>
+    </form>
 </div>
