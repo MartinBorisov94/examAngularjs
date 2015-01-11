@@ -18,7 +18,7 @@ app.controller('EditProfileController',
             )
         };
 
-        $scope.userLoadInf =function(){
+        $scope.userLoadInf = function(){
             userProfileService.getUserProfile(
                 function success(date){
                     $scope.userInformation = date;
@@ -31,5 +31,17 @@ app.controller('EditProfileController',
 
         $scope.userLoadInf();
 
+        $scope.editUser = function(userInformation){
+            userProfileService.editUserProfile(
+                userInformation,
+                function success(){
+                    notifyService.showInfo('Successful edit');
+                    $location.path('/');
+                },
+                function error(err){
+                    notifyService.showError('Err with edit', err);
+                }
+            )
+        }
     }
 );

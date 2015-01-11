@@ -30,14 +30,13 @@
                     <select class="form-control" id="selectTown" >
                         <option ng-repeat="town in towns">{{town.name}}</option>
                         <option value="{{userInformation.townId}}">{{userInformation.townId }}</option>
-
                     </select>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
-                    <button class="btn btn-default">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <a href="/#/" class="btn btn-default">Cancel</a>
+                    <button type="submit" class="btn btn-primary" ng-click="editUser(userInformation)">Update</button>
                 </div>
             </div>
         </fieldset>
@@ -74,7 +73,7 @@
 
             <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
-                    <button class="btn btn-default">Cancel</button>
+                    <a href="/#/" class="btn btn-default">Cancel</a>
                     <a class="btn btn-primary" ng-click="submitChange(passwordData)">Change Password</a>
                 </div>
             </div>
