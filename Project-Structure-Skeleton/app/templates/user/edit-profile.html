@@ -27,9 +27,8 @@
             <div class="form-group">
                 <label for="selectTown" class="col-lg-2 control-label">Town</label>
                 <div class="col-lg-10">
-                    <select class="form-control" id="selectTown" >
-                        <option ng-repeat="town in towns">{{town.name}}</option>
-                        <option value="{{userInformation.townId}}">{{userInformation.townId }}</option>
+                    <select class="form-control" id="selectTown" ng-model="userInformation.townId" >
+                        <option ng-repeat="town in towns" value="{{town.id}}">{{town.name}}</option>
                     </select>
                 </div>
             </div>
